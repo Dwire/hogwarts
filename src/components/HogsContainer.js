@@ -9,7 +9,7 @@ class HogsContainer extends React.Component {
 
   render(){
     return(
-      <div class="ui grid container">
+      <div className="ui grid container">
         {this.generateHogTile()}
       </div>
     )

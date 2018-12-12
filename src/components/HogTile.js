@@ -24,12 +24,12 @@ class HogTile extends Component {
     let {name, greased} = this.props.hog
 
     return(
-      <div class="ui four wide column">
+      <div className="ui four wide column pigTile">
         <img src={this.imagePath()} alt="Hogo"/>
         <h3>Name: {name}</h3>
         <p>Is Greased?: {greased ? 'YUUUP' : 'DRY'}</p>
         <button onClick={this.handleClick}>{this.state.details ? "Hide Details" : "Show Details"}</button>
-        {this.state.details ? <HogDetail hog={ hog }/> : null}
+        {this.state.details && <HogDetail hog={ hog }/>}
       </div>
     )
   }
