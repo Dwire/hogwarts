@@ -11,7 +11,7 @@ class HogForm extends Component {
           <option value="weight">Weight</option>
         </select>
         <label>Greased?</label>
-        <input type="checkbox" ={this.props.handleGreased} />
+        <input type="checkbox" onChange={this.props.handleGreased} />
       </div>
     )
   }

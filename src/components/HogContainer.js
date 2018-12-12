@@ -6,24 +6,40 @@ import HogForm from './HogForm'
 
 class HogContainer extends Component {
 
+  state = {
+    greased: false,
+    filterTerm: 'all'
+  }
+
+  handleFilter = (e) => {
+    const term = e.target.value
+    this.setState({
+      filterTerm: term
+    })
+  }
+
+  handleGreased = (e) => {
+    this.setState({
+      greased: !this.state.greased
+    })
+  }
+
+  // filterGreased = () => {
+  //   hogs.filter()
+  // }
+
   renderHogTiles = () => {
     return hogs.map(hog => {
       return <HogTile hog={hog}/>
     })
   }
 
-  handleFilter = (e) => {
-    console.log(e)
-  }
-
-  handleGreased = (e) => {
-    console.log(e)
-  }
 
   render() {
+    console.log(this.state);
     return(
       <div>
-        <HogForm handleFilter={this.handleFilter}/>
+        <HogForm handleFilter={this.handleFilter} handleGreased={this.handleGreased}/>
         {this.renderHogTiles()}
       </div>
     )
