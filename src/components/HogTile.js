@@ -14,12 +14,19 @@ class HogTile extends React.Component {
     })
   }
 
+  formatPath = () => {
+    const newName = this.props.hog.name.split(" ").join("_").toLowerCase()
+    const slugPath = require(`../hog-imgs/${newName}.jpg`)
+    return slugPath
+  }
+
   render() {
     let { hog } = this.props
     let { name, greased } = this.props.hog
 
     return(
-      <div>
+      <div className="ui eight wide column pigTile">
+        <img src={this.formatPath()} alt="pig"/>
         <h1>{name}</h1>
         <h3>Greased: {greased ? "YUUP" : "NAAAA"}</h3>
         <button onClick={this.handleClick} >{this.state.clicked ? "Show Details" : "Hide Details"}</button>
